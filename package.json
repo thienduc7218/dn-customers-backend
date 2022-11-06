@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
+    "start": "nx serve customers",
     "build": "nx build",
     "build:check": "tsc -p tsconfig.base.json --noEmit --declaration false --declarationMap false",
     "test": "nx test"
