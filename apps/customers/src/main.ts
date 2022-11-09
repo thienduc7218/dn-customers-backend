@@ -1,15 +1,15 @@
-import { Logger } from '@nestjs/common'
+import { Logger, ValidationPipe } from '@nestjs/common'
 import { NestApplication, NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
-import { ConfigService } from '@nestjs/config'
 
 import { AppModule } from './app.module'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestApplication>(AppModule)
-  const config = app.get(ConfigService)
+  app.enableCors()
+  app.useGlobalPipes(new ValidationPipe())
   //Swagger
-  const configSwagger = new DocumentBuilder().setTitle('Denius APIs').setVersion('1.0').addBearerAuth().build()
+  const configSwagger = new DocumentBuilder().setTitle('Denius APIs').setVersion('1.0').build()
   const document = SwaggerModule.createDocument(app, configSwagger)
   SwaggerModule.setup('api', app, document, {
     swaggerOptions: { persistAuthorization: true },

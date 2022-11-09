@@ -1,7 +1,8 @@
-import { CoreModule } from '@dn-customers/core'
 import { Module } from '@nestjs/common'
+import { MongooseModule } from '@nestjs/mongoose'
+import { CustomersModule } from './services/customers.module'
 
 @Module({
-  imports: [CoreModule],
+  imports: [MongooseModule.forRoot(process.env.MONGODB_URI, { useNewUrlParser: true }), CustomersModule],
 })
 export class AppModule {}

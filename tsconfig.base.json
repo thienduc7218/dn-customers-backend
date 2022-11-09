@@ -3,19 +3,19 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "target": "es2020",
+    "module": "commonjs",
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dn-customers/core": ["libs/core/src/index.ts"]
+      "@dn/customers": ["libs/customers/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
